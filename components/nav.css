@@ -1,0 +1,112 @@
+.nav {
+  width: 100%;
+  background: var(--bg-2)
+}
+.nav > nav {
+  height: 4.5rem;
+  width: 100%;
+  max-width: var(--page-width-limit);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+}
+
+.nav > nav > .logo {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+}
+.nav > nav > .logo > img {
+  width: 4rem;
+  height: 4rem;
+  margin: 0.25rem;
+}
+
+.nav > nav > .logo > .name {
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: var(--accent-text);
+  line-height: 1;
+}
+
+.nav > nav > .categories {
+  display: flex;
+
+}
+
+.nav > nav > .categories > .category {
+  position: relative;
+  padding: 1rem;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  color: var(--text-1);
+  text-decoration: none;
+}
+.nav > nav > .categories > .category.disabled {
+  position: relative;
+  padding: 1rem;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  color: var(--text-3)
+}
+
+.nav > nav > .categories > .category:after {
+  position: absolute;
+  content: "";
+  height: 0.1875rem;
+  border-radius: 1rem;
+  background: var(--accent-border);
+  inset: auto calc(30% + 0.7rem) 1.25rem calc(30% + 0.7rem);
+  opacity: 0;
+  transition: inset 200ms, opacity
+  200ms;
+}
+.nav > nav > .categories > .category.category.disabled:after {
+  content: "Coming Soon";
+  transition: opacity 200ms;
+  inset: auto auto 0 50%;
+  transform: translateX(-50%);
+  height: 2.25rem;
+  display: grid;
+  place-content: center;
+  background: none;
+  width: max-content;
+  color: var(--text-3);
+  font-size: 0.85rem;
+}
+
+.nav > nav > .categories > .category[data-active="true"]:after,
+.nav > nav > .categories > .category:hover:after {
+  opacity: 1;
+}
+
+.nav > nav > .categories > .category[data-active="true"]:not(.disabled):after,
+.nav > nav > .categories > .category:not(.disabled):hover:after {
+  inset: auto 1rem 1.25rem 1rem;
+}
+
+
+.nav > nav > .leftActions {
+  display: flex;
+  justify-content: end;
+}
+.nav > nav > .leftActions > .darkToggle {
+  display: grid;
+  place-content: center;
+  margin: 1rem;
+  width: 2.5rem;
+  font-size: 1.375rem;
+  color: var(--text-3);
+  cursor: pointer;
+}
+.nav > nav > .leftActions > .darkToggle:hover {
+  color: var(--text-2);
+}
+
+
+
