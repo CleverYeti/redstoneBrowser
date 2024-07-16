@@ -1,0 +1,289 @@
+.buildPage {
+  max-width: 75rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 18rem;
+  gap: 1rem;
+  position: relative;
+}
+
+.buildPage > .images {
+  width: 100%;
+  border-radius: 0.75rem;
+  background: var(--bg-2);
+  overflow: hidden;
+}
+.buildPage  > .images > .scroller {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  display: flex;
+}
+.buildPage > .images > .scroller > .image {
+  scroll-snap-align: center;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+.buildPage > .images > .scroller::-webkit-scrollbar {display: none;}
+
+.buildPage > .images > .selector {
+  padding: 0.75rem;
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+}
+.buildPage > .images > .selector::-webkit-scrollbar-track {
+  background: none;
+}
+.buildPage > .images > .selector > .image {
+  width: 6rem;
+  aspect-ratio: 16 / 10;
+  border-radius: 0.5rem;
+  filter: brightness(0.75);
+}
+
+
+
+
+
+
+
+
+
+.buildPage > .buildInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.buildPage > .buildInfo > .name {
+  color: var(--text-1);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.buildPage > .buildInfo > .creator {
+  color: var(--text-2);
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  text-decoration: underline;
+  text-underline-offset: 0.125rem;
+  cursor: pointer;
+}
+.buildPage > .buildInfo > .stats {
+  margin-top: 1rem;
+}
+
+.buildPage > .buildInfo > .tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+.buildPage > .buildInfo > .tags > .tag {
+  padding: 0.25rem 0.5rem;
+  background: var(--bg-3);
+  border-radius: 5rem;
+  cursor: pointer;
+  transition: background 100ms;
+}
+.buildPage > .buildInfo > .tags > .tag:hover {background: var(--bg-4)}
+
+
+
+.buildPage > .buildInfo > .actionButton {
+  position: relative;
+  height: 2.75rem;
+  margin: 0.5rem 1.5rem;
+  display: grid;
+  place-content: center;
+  border-radius: 2rem;
+  border: 3px solid var(--accent-border);
+  transition: background 100ms;
+  isolation: isolate;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
+.buildPage > .buildInfo > .actionButton > .text {
+  transition: transform 300ms ease;
+  font-weight: 500;
+}
+.buildPage > .buildInfo > .actionButton:hover > .text {
+  transform: scale(1.1)
+}
+
+
+.svgWrapper {
+  display: contents;
+}
+
+.buildPage > .buildInfo > .actionButton > .svgWrapper > svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.animationFill {
+  fill: url(#radial-gradient);
+}
+
+.stop2 {
+  transition: stop-color 100ms linear;
+  stop-color: #ffffff77;
+}
+.stop1 {
+  transition: stop-color 300ms ease-out;
+  stop-color: transparent;
+}
+
+.buildPage > .buildInfo > .actionButton:hover .stop1 {
+  stop-color: #ffffff77;
+}
+.buildPage > .buildInfo > .actionButton:hover .stop2 {
+  stop-color: #ffffffaa;
+}
+
+
+
+
+.buildPage > .buildInstructions {
+  margin-top: 2rem;
+  grid-column: span 2;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 1rem;
+  isolation: isolate;
+}
+.buildPage > .buildInstructions > .option {
+  margin: 0 auto;
+  max-width: 25rem;
+  position: relative;
+  background: var(--bg-2);
+  border-radius: 0.75rem;
+  margin-top: 4rem;
+}
+
+@property --anim {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+@keyframes option-highlight {
+  20% {
+    opacity: 1;
+  }
+  60% {
+    --anim: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.buildPage > .buildInstructions > .option:after {
+  inset: -0.125rem;
+  position: absolute;
+  content: "";
+  background: linear-gradient(to top, #d01000 0%, #d0100033 calc(100% * var(--anim)));
+  z-index: -1;
+  border-radius: inherit;
+  --anim: 0;
+  opacity: 0;
+}
+.buildPage > .buildInstructions.animate > .option:after {
+  animation: option-highlight 1000ms;
+}
+
+.buildPage > .buildInstructions > .option:nth-child(1):after { animation-delay: 200ms }
+.buildPage > .buildInstructions > .option:nth-child(2):after { animation-delay: 400ms }
+.buildPage > .buildInstructions > .option:nth-child(3):after { animation-delay: 600ms }
+
+.buildPage > .buildInstructions > .option > .icon {
+  height: 8rem;
+  margin-top: -4rem;
+  display: grid;
+  place-content: center;
+}
+
+.buildPage > .buildInstructions > .option > .icon > img {
+  width: 12rem;
+  height: 12rem;
+}
+
+.buildPage > .buildInstructions > .option > .title {
+  margin-top: 0.25rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.buildPage > .buildInstructions > .option > .description {
+  text-align: center;
+  padding: 0 1rem;
+  color: var(--text-3);
+}
+
+.buildPage > .buildInstructions > .option > .video {
+  margin-top: 0.25rem;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  padding: 0.75rem;
+}
+.buildPage > .buildInstructions > .option > .video > iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
+.buildPage > .buildInstructions > .option > .actionButton {
+  width: calc(100% - 2rem);
+  max-width: 15rem;
+  height: 2.75rem;
+  margin: 1rem auto;
+  display: grid;
+  place-content: center;
+  border-radius: 2rem;
+  border: 3px solid var(--accent-border);
+  isolation: isolate;
+  overflow: hidden;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 1000ms ease;
+  position: relative;
+}
+
+.buildPage > .buildInstructions > .option > .actionButton > .text {
+  transition: transform 300ms ease;
+  font-weight: 500;
+}
+.buildPage > .buildInstructions > .option > .actionButton:hover > .text {
+  transform: scale(1.1)
+}
+
+
+
+.buildPage > .buildInstructions > .option > .actionButton > .svgWrapper > svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.buildPage > .buildInstructions > .option > .actionButton > .svgWrapper > svg .animationFill {
+  fill: url(#radial-gradient-2);
+}
+
+.buildPage > .buildInstructions > .option > .actionButton:hover > .svgWrapper > svg .stop1 {
+  stop-color: #ffffff77;
+}
+.buildPage > .buildInstructions > .option > .actionButton:hover > .svgWrapper > svg .stop2 {
+  stop-color: #ffffffaa;
+}
+
+

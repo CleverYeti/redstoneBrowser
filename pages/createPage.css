@@ -1,0 +1,172 @@
+.createPage {
+  max-width: 75rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.75fr;
+  gap: 1rem;
+  position: relative;
+}
+.createPage > .leftColumn,
+.createPage > .middleColumn,
+.createPage > .rightColumn {
+  width: 100%;
+  border-radius: 0.75rem;
+  background: var(--bg-2);
+  overflow: hidden;
+  padding: 0.5rem;
+}
+
+.inputBlock {
+  display: flex;
+  align-items: center;;
+  color: var(--text-2);
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.inputBlock > input {
+  all: unset;
+  height: 1.75rem;
+  background: var(--bg-3);
+  border-radius: 0.5rem;
+  width: 4rem;
+  flex-grow: 1;
+  border: none;
+  padding: 0 0 0 0.5rem;
+}
+
+.createPage > div > .stats > .stat > .statInput {
+  all: unset;
+  height: 1.75rem;
+  background: var(--bg-3);
+  border-radius: 0.5rem;
+  width: 4rem;
+  border: none;
+  padding: 0 0 0 0.5rem;
+}
+
+.createPage > div > .creators {
+  margin-top: 1.5rem;
+}
+.createPage > div > .creators > .title {
+  margin-bottom: 0.25rem;
+}
+
+
+.createPage > div > .creators > .addCreator {
+  appearance: none;
+  color: var(--text-2);
+  height: 1.75rem;
+  background: var(--bg-3);
+  margin-left: 0;
+  border-radius: 0.5rem;
+  text-align: center;
+  width: 100%;
+  border: none;
+  padding: 0 0 0 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.createPage > div > .creators > .creatorLine {
+  display: flex;
+  height: 1.75rem;
+  align-items: center;
+}
+.createPage > div > .creators > .creatorLine > .name {
+  flex-grow: 1;
+}
+
+.createPage > div > .creators > .creatorLine > .icon,
+.createPage > div > .creators > .creatorLine > .remove {
+  height: 1.75rem;
+  width: 1.75rem;
+  display: grid;
+  place-content: center;
+}
+
+.createPage > .images {
+  grid-column: span 3;
+  width: 100%;
+  border-radius: 0.75rem;
+  background: var(--bg-2);
+  overflow: hidden;
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;  
+}
+.createPage > .images > .addImages {
+  aspect-ratio: 16 / 10;
+  background: var(--bg-3);
+  border-radius: 0.5rem;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+.createPage > .images > .imageBlock {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.createPage > .images > .imageBlock > .image {
+  aspect-ratio: 16 / 10;
+}
+.createPage > .images > .imageBlock > .move {
+  display: contents;
+  inset: 0 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.createPage > .images > .imageBlock > .move > .up,
+.createPage > .images > .imageBlock > .move > .down {
+  margin: 0.5rem;
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  background: var(--bg-1);
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+.createPage > .images > .imageBlock > .move > .up {
+  inset: 0 0 auto auto;
+}
+.createPage > .images > .imageBlock > .move > .down {
+  inset: auto 0 0 auto;
+}
+
+
+
+
+.createPage > .actionButton {
+  grid-column: span 3;
+  width: calc(100% - 2rem);
+  max-width: 15rem;
+  height: 2.75rem;
+  margin: 1rem auto;
+  display: grid;
+  place-content: center;
+  border-radius: 2rem;
+  border: 3px solid var(--accent-border);
+  isolation: isolate;
+  overflow: hidden;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 1000ms ease;
+  position: relative;
+}
+
+.createPage > .submitAsAdmin {
+  grid-column: span 3;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: underline;
+  color: var(--accent-border);
+}
